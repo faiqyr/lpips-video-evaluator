@@ -1,4 +1,6 @@
+# ============================================================
 # Python
+# ============================================================
 __pycache__/
 *.py[cod]
 *.pyo
@@ -10,46 +12,72 @@ build/
 .eggs/
 *.egg
 
+# ============================================================
 # Virtual environments
+# ============================================================
 venv/
 env/
 .env
 .venv
 
-# Database
+# ============================================================
+# Database (SQLite runtime file — regenerates automatically)
+# ============================================================
 *.db
 *.sqlite
 *.sqlite3
 
-# Backend runtime folders (uploaded videos & extracted frames)
+# ============================================================
+# Backend runtime data — video uploads & extracted frames
+# These are large binary/image files, NOT source code.
+# They are regenerated at runtime and must NOT be committed.
+# ============================================================
 backend/uploads/
 backend/frames/
-backend/test*.zip
 
+# ============================================================
+# Temporary / test files
+# ============================================================
+backend/*.zip
+*.zip
+*.tmp
+*.bak
+
+# ============================================================
 # Streamlit cache
+# ============================================================
 .streamlit/
 
-# Node / Frontend
+# ============================================================
+# Node / Frontend build artifacts
+# ============================================================
 frontend/node_modules/
 frontend/dist/
 frontend/dist-ssr/
 frontend/.local
 
+# ============================================================
 # Logs
+# ============================================================
 *.log
 npm-debug.log*
 yarn-debug.log*
+pnpm-debug.log*
 
-# OS
+# ============================================================
+# OS generated files
+# ============================================================
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# IDE
+# ============================================================
+# IDE / Editor
+# ============================================================
 .vscode/
 .idea/
 *.suo
+*.ntvs*
+*.njsproj
+*.sln
 *.sw?
-
-# Misc
-*.tmp
-*.bak
