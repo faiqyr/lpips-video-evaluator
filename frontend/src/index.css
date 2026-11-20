@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+}
+
+/* Dark theme variables - applied directly to html.dark */
+:root, .dark {
+  --background: #050508;
+  --foreground: #f0f0f5;
+
+  --card: rgba(15, 15, 25, 0.6);
+  --card-foreground: #f0f0f5;
+
+  --popover: #0a0a12;
+  --popover-foreground: #f0f0f5;
+
+  --primary: #818cf8;
+  --primary-foreground: #0f0f1a;
+
+  --secondary: rgba(30, 30, 50, 0.5);
+  --secondary-foreground: #e0e0f0;
+
+  --muted: #1a1a2e;
+  --muted-foreground: #8888aa;
+
+  --accent: rgba(99, 102, 241, 0.15);
+  --accent-foreground: #c4b5fd;
+
+  --destructive: #dc2626;
+  --destructive-foreground: #fafafa;
+
+  --border: rgba(99, 102, 241, 0.12);
+  --input: rgba(99, 102, 241, 0.12);
+  --ring: #818cf8;
+
+  --radius: 0.5rem;
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.5);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.1); }
+  50% { box-shadow: 0 0 30px rgba(99, 102, 241, 0.25); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(15, 15, 30, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.glass-strong {
+  background: rgba(15, 15, 30, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #f472b6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Background pattern */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Upload zone */
+.upload-zone {
+  position: relative;
+  border: 2px dashed rgba(99, 102, 241, 0.25);
+  border-radius: 16px;
+  background: rgba(99, 102, 241, 0.03);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.upload-zone:hover {
+  border-color: rgba(99, 102, 241, 0.5);
+  background: rgba(99, 102, 241, 0.06);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.1);
+}
+
+.upload-zone.dragging {
+  border-color: #818cf8;
+  background: rgba(99, 102, 241, 0.1);
+  box-shadow: 0 0 40px rgba(99, 102, 241, 0.2);
+}
+
+/* Progress bar */
+.progress-bar {
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(99, 102, 241, 0.1);
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #818cf8, #c084fc);
+  transition: width 0.5s ease;
+}
+
+/* Status badges */
+.status-processing {
+  background: rgba(251, 191, 36, 0.15);
+  color: #fbbf24;
+}
+
+.status-completed {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+}
+
+.status-failed {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+/* Tab styles */
+.tab-button {
+  position: relative;
+  padding: 12px 28px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #8888aa;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+  background: transparent;
+}
+
+.tab-button:hover {
+  color: #c4b5fd;
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.tab-button.active {
+  color: #f0f0f5;
+  background: rgba(99, 102, 241, 0.12);
+  border-color: rgba(99, 102, 241, 0.2);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.08);
+}
+
+/* Stat card */
+.stat-card {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(192, 132, 252, 0.05) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.12);
+  border-radius: 16px;
+  padding: 20px 24px;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  border-color: rgba(99, 102, 241, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.08);
+}
+
+/* Video card */
+.video-card {
+  background: rgba(15, 15, 30, 0.4);
+  border: 1px solid rgba(99, 102, 241, 0.08);
+  border-radius: 12px;
+  padding: 16px 20px;
+  transition: all 0.3s ease;
+}
+
+.video-card:hover {
+  border-color: rgba(99, 102, 241, 0.2);
+  background: rgba(15, 15, 30, 0.6);
+}

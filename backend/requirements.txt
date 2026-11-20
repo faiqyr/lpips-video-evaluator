@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+sqlalchemy
+python-multipart
+opencv-python
+torch
+torchvision
+lpips
+pandas
+numpy
+pydantic
+pydantic-settings
+openpyxl
